@@ -1,2 +1,303 @@
 +F5::Edit ; Shift-F5 launches the current AutoHotkey script in preferred editor, else Notepad 
 ^F5::Reload ; Ctrl-F5 reloads the current AutoHotKey script after any edits.
+
+::3uf::
+clipboard=3urfree
+send ^v{Space}
+return
+
+::otco::
+clipboard=one time courtesy
+send ^v{Space}
+return
+
+::rec::
+clipboard=receive
+send ^v{Space}
+return
+
+::evandc::
+clipboard=events@neora.com
+send ^v{Space}
+return
+
+::eandc::
+clipboard=enrollments@neora.com
+send ^v{Space}
+return
+
+::sandc::
+clipboard=support@neora.com
+send ^v{Space}
+return
+
+::obc::
+clipboard=outbound call 
+send ^v{Space}
+return
+
+;updates /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+::ccura::
+clipboard=cc info update // reprocess ado
+Sleep 100
+send ^v{tab}{right}{enter}
+clipboard=cci to update cc info and reprocess ado, updated and reprocessed
+send ^v
+return
+
+::ccu::
+clipboard=cc info update
+Sleep 100
+send ^v{tab}{right}{enter}
+clipboard=cci to update cc info, updated cc info
+send ^v
+return
+
+::cau::
+clipboard=account update
+Sleep 100
+send ^v{tab}{right}{enter}
+clipboard=cci to update xx, updated xx
+send ^v
+return
+
+::cadu::
+clipboard=address update
+Sleep 100
+send ^v{tab}{right}{enter}
+clipboard=cci to update address, updated billing/shipping/main address
+send ^v
+return
+
+::cpwu::
+clipboard=password update
+Sleep 100
+send ^v{tab}{right}{enter}
+clipboard=cci for help updating password due to not rec'ing email, updated password
+send ^v
+return
+
+;cancellations//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+::ccaos::
+clipboard=cancel ado - overstock
+Sleep 100
+send ^v{tab}{right}{enter}
+clipboard=cci to cancel ado due to overstock, did not want to delay or set to bi-monthly, cancelled ado
+send ^v
+return
+
+::ccanr::
+clipboard=cancel ado - no reason
+Sleep 100
+send ^v{tab}{right}{enter}
+clipboard=cci to cancel ado for no particular reason, did not want to try any other products, cancelled ado
+send ^v
+return
+
+::ccaf::
+clipboard=cancel ado - financial
+Sleep 100
+send ^v{tab}{right}{enter}
+clipboard=cci to cancel ado for financial reasons, did not want to try any other products, cancelled ado
+send ^v
+return
+
+::ccajt::
+clipboard=cancel ado - just trying product ;state that they can always reinstate it and that auto-order is cheaper
+Sleep 100
+send ^v{tab}{right}{enter}
+clipboard=cci to cancel ado due to just wanting to try the product, cancelled ado
+send ^v
+return
+
+::cce::
+clipboard=cancel edge
+Sleep 100
+send ^v{tab}{right}{enter}
+clipboard=cci to cancel edge due to being unaware of it, cancelled edge
+send ^v
+return
+
+::ccane::
+clipboard=cancel ado - no effect
+Sleep 100
+send ^v{tab}{right}{enter}
+clipboard=cci to cancel ado due to no effect, did not want to try any other products, cancelled ado
+send ^v
+return
+;ORDERS/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+::cpao::
+clipboard=place an order
+Sleep 100
+send ^v{tab}{enter}
+clipboard=cci to place an order for XXX, created ado and placed order for today, scheduled next order for 
+send ^v
+return
+
+::cadc::
+clipboard=ado date change
+Sleep 100
+send ^v{tab}{enter}
+clipboard=cci to change ado date, changed ado date to XXXX 
+send ^v
+return
+
+::capc::
+clipboard=ado product change
+Sleep 100
+send ^v{tab}{enter}
+clipboard=cci to change ado product(s) to XXXX, changed product(s)
+send ^v
+return
+
+::crpa::
+clipboard=reprocess ado
+Sleep 100
+send ^v{tab}{enter}
+clipboard=cci to reprocess ado due to cc decline, reprocessed ado from XXXX
+send ^v
+return
+
+;MISCELLANEOUS/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+::crma::
+clipboard=rma/refund
+Sleep 100
+send ^v{tab}{enter}
+clipboard=cci to return package shipped on /, provided rma#/return address, and adv to get tracking#
+send ^v
+return
+
+::csotp::
+clipboard=so track package
+Sleep 100
+send ^v{tab}{enter}
+clipboard=cci to check when order on 08/01 will arrive, tracked package and adv it will arrive within a few days
+send ^v
+return
+
+::csowm::
+clipboard=replacement order
+Sleep 100
+send ^v{tab}{enter}
+clipboard=cci to track package from XXXX, sent replacement due to package showing as delivered on XXXX and pc never rec'ing package
+send ^v
+return
+
+::cpwa::
+clipboard=password assist
+Sleep 100
+send ^v{tab}{right}{enter}
+clipboard=cci for help with logging in, informed of username and password, login was successful
+send ^v
+return
+
+;email templates ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+::emngb::
+clipboard =
+(
+NGB (Commission.Review@Nerium.com)	
+Customer Name:	
+Customer ID#: 	
+PC ID#	
+2nd ADO Date:	
+Product Type	
+Consecutive (Y/N):	
+)
+send ^v
+return
+
+::emrr::
+clipboard=Refund Request - 
+send ^v{tab}
+clipboard =
+(
+Refund Request
+
+Customer Name: 
+Customer ID#:
+Order Date: 
+Order ID#: 
+Contact Info:  
+Product Returned:
+Reason: 	
+)
+send ^v
+return
+
+::emmp::
+clipboard=Mis-pick - 
+send ^v{tab}
+clipboard =
+(
+Hi Zach, got another mis-pick. Thanks!
+
+Customer Name: 
+Customer ID#:
+Order Date: 
+Order ID#: 
+Product Ordered:
+Product Missing:
+)
+send ^v
+return
+
+;exigo manipulations //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+^h::
+BlockInput, MouseMove
+winActivate Exigo Office - Neora - Internet Explorer
+sendEvent {click 208, 206, down}{click 383, 254, up}
+send ^c
+sleep 200
+click 220, 460
+sleep 250
+click 1650, 140
+sleep 250
+winwait http://v5live2.exigo.com/?SessionID
+click 200, 300
+sleep 150
+send ^v{enter}{Tab}c
+sleep 500
+winmove 1900, 250
+winActivate Exigo Office - Neora - Internet Explorer
+click 200, 300
+BlockInput, MouseMoveOff
+return
+
+^+c::
+BlockInput, MouseMove                
+winActivate ahk_exe chrome.exe
+send ^1
+sendEvent {click 735, 207, down}{click 868, 207, up}
+send ^c
+Clipboard := SubStr(clipboard, 3)
+winActivate Exigo Office - Neora - Internet Explorer
+sendEvent {click 1515, 75}
+winWait Pick Customer -- Webpage Dialog
+sleep 200
+send ^v{Tab}p
+sleep 100
+send {Enter}
+BlockInput, MouseMoveOff
+return
+
+
+
+
+^+w::
+Loop
+{
+if getKeyState("Space")
+	break
+mouseMove 100, 200
+sleep 100
+mouseMove 105, 200
+sleep 100
+}
+return
+	
