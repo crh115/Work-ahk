@@ -1,0 +1,2 @@
++F5::Edit ; Shift-F5 launches the current AutoHotkey script in preferred editor, else Notepad 
+^F5::Reload ; Ctrl-F5 reloads the current AutoHotKey script after any edits.
